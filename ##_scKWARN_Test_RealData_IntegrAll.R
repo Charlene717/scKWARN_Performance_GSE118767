@@ -105,14 +105,9 @@ if(Set_Test_Type == "CompDiff"){
   }
   source("##_Create_Compositional_Differences.R")
 
-}else if(Set_Test_Type == "WeakenGeneExp"){
-  ## Case of Weaken GeneExp
-  source("##_Create_Weaken_GeneExp.R")
-
 }else{
   # Remove datasets not in Set_Dataset from the seurat_list
   seurat_list <- seurat_list[names(seurat_list) %in% Set_Dataset]
-
 }
 
 
