@@ -1,3 +1,5 @@
+## Quality control for Seurat Object
+
 # https://nbisweden.github.io/workshop-scRNAseq/labs/compiled/seurat/seurat_01_qc.html
 
 if(!require("Seurat")) install.packages("Seurat"); library(Seurat)
