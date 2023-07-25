@@ -111,7 +111,7 @@ if(Set_Test_Type == "CompDiff"){
 
 }
 
-#### QC ####
+## QC
 source("Run_Seurat_QC.R")
 
 Rec_Time_Point.lt[["Load_data"]] <- Sys.time() # %>% as.character()
