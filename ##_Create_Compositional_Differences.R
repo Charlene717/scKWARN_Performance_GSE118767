@@ -3,7 +3,7 @@
 # ##### Presetting ######
 # rm(list = ls()) # Clean variable
 # memory.limit(150000)
-# Set_Seed <- 717
+# Set_Seed <- 123
 
 ##### Load required libraries #####
 if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
@@ -192,58 +192,3 @@ Set_Dataset <- paste("Sum", Set_TotalCellNum, Set_Main_CellLine, round(rev(Set_R
 # dev.off()
 #
 # rm(plots_CellCount_list, combined_plot_CellCount)
-
-################################################################################
-################################# Back up code #################################
-# #### Count cell number ####
-# source("#_FUN_Metric.R")
-# # Num_Cell.df <- calculate_counts(seuratObject, field_names = "Cell_Type")
-# # Num_Cell.df
-#
-# seurat_list <- lapply(seurat_list, function(seurat_object) {
-#   # Calculate counts
-#   counts <- calculate_counts(seurat_object, field_names = "Cell_Type")
-#
-#   # Store the result in the misc slot
-#   seurat_object@misc[["CountCell"]] <- counts
-#
-#   return(seurat_object)
-# })
-
-
-#### Create_Compositional_Differences ####
-# ## Back up ##
-#
-# ## Set Multiple cell type
-# Set_TotalCellNum <- 100
-#
-# # A list containing named vectors. The names of each vector are the cell lines and values are the ratios
-# Set_CellLine_Ratios <- list(
-#   Scenario1 = c("H1975" = 0.5, "H2228" = 0.3, "HCC827" = 0.2),
-#   Scenario2 = c("H1975" = 0.4, "H2228" = 0.4, "HCC827" = 0.2),
-#   Scenario3 = c("H1975" = 0.3, "H2228" = 0.4, "HCC827" = 0.3)
-# )
-#
-# source("#_FUN_Metric.R")
-# Num_Cell.df <- calculate_counts(seuratObject, field_names = "Cell_Type")
-# Num_Cell.df
-#
-# seurat_list <- list()
-# # Loop through the Set_CellLine_Ratios list
-# for (scenario in names(Set_CellLine_Ratios)) {
-#   cell_line_ratios <- Set_CellLine_Ratios[[scenario]]
-#
-#   # Create the composition vector for each scenario
-#   set_comp_values <- c("Sum" = Set_TotalCellNum)
-#   set_comp_values <- c(set_comp_values, cell_line_ratios)
-#
-#   # Create the Seurat object using the modified recompose_seurat function
-#   new_seurat_object <- recompose_seurat(seuratObject,
-#                                         cell_type_field = "Cell_Type",
-#                                         set_comp = set_comp_values)
-#
-#   # Add the new Seurat object to the list
-#   seurat_list[[scenario]] <- new_seurat_object
-# }
-#
-# # The names of the Seurat objects in the list are already assigned by the names of Set_CellLine_Ratios
