@@ -1,4 +1,4 @@
-##_Run_Normalization_SeuratList.R
+## Perform normalization on the main program's data
 
 ## Set Normalization method
 # Set_NorType <- c("counts","scKWARN", "RC", "scran", # "Seurat_LogNormalize","Seurat_RC","Seurat_CLR",
