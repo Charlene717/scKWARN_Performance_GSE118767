@@ -1,3 +1,5 @@
+## Perform normalization on the Jaccard program's data
+
 ## Call function
 source("#_FUN_NorMeth.R")
 Count.mtx <- seuratObject@assays[["RNA"]]@counts %>% as.matrix()
