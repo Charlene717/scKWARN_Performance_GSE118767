@@ -50,22 +50,22 @@ create_plots_CellCount_list <- function(seurat_list, reverse_order = FALSE,
 }
 
 
-#### Test results ####
-## Count cell number
-source("#_FUN_Metric.R")
-seurat_list <- lapply(seurat_list, function(seurat_object) {
-  # Calculate counts
-  counts <- calculate_counts(seurat_object, field_names = "Cell_Type")
-
-  # Store the result in the misc slot
-  seurat_object@misc[["CountCell"]] <- counts
-
-  return(seurat_object)
-})
-
-# Use the function to create a list of plots with reverse order and sum of cells in the title
-
-
+# #### Test results ####
+# ## Count cell number
+# source("#_FUN_Metric.R")
+# seurat_list <- lapply(seurat_list, function(seurat_object) {
+#   # Calculate counts
+#   counts <- calculate_counts(seurat_object, field_names = "Cell_Type")
+#
+#   # Store the result in the misc slot
+#   seurat_object@misc[["CountCell"]] <- counts
+#
+#   return(seurat_object)
+# })
+#
+# # Use the function to create a list of plots with reverse order and sum of cells in the title
+#
+#
 # plots_CellCount_list <- create_plots_CellCount_list(seurat_list, reverse_order = TRUE,
 #                                                     add_sum_cells = TRUE)
 # plots_CellCount_list <- create_plots_CellCount_list(seurat_list, reverse_order = TRUE,
