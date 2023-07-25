@@ -6,13 +6,11 @@ rm(list = ls())
 memory.limit(150000)
 
 Set_Test_Type <- ""
-# Set_Main_CellLine <- "A549"
-# Set_Filter_Cell = FALSE
-# Set_Main_FltCellLine = "ALL"
-# Set_TotalCellNum <- 800
 Set_numGeneforEst = 2000
 Set_FindVarFea <- "vst"
+Name_Test <- "V1"
 Set_NorType <- c("counts","scKWARN", "RC", "scran", "sctransform", "PsiNorm", "SCNorm")
+
 
 source("##_scKWARN_RealData_IntegrAll.R")
 
