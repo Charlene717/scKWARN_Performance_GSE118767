@@ -142,33 +142,3 @@ print(Plt_UMAP)
 print(Plt_UMAP_CT)
 dev.off()
 
-#### Run ROGUE ####
-## Ref: https://htmlpreview.github.io/?https://github.com/PaulingLiu/ROGUE/blob/master/vignettes/ROGUE_Tutorials.html
-## Load package
-suppressMessages(library(ROGUE))
-suppressMessages(library(ggplot2))
-suppressMessages(library(tidyverse))
-
-seurat_object <- seurat_F_list[["mix.10x5"]]
-expr <- seurat_object@assays[["RNA"]]@data %>% as.matrix()
-meta <- seurat_object@meta.data %>% as.data.frame()
-
-## Filtering out low-abundance genes and low-quality cells
-expr <- matr.filter(expr, min.cells = 10, min.genes = 10)
-## Expression entropy model
-ent.res <- SE_fun(expr)
-head(ent.res)
-SEplot(ent.res)
-
-## ROGUE calculation
-rogue.value <- CalculateRogue(ent.res, platform = "UMI")
-rogue.value
-
-rogue.res <- rogue(expr, labels = meta$cell_line_demuxlet, samples = meta$cell_line_demuxlet, platform = "UMI", span = 0.6)
-rogue.res
-
-#Visualize ROGUE values on a boxplot
-rogue.boxplot(rogue.res)
-
-
-
