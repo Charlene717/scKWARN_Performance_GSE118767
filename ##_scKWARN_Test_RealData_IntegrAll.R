@@ -1,11 +1,3 @@
-##### To-Do List ######
-# - [] DEG
-# - [] Heatmap
-# - [T] Parameter Record
-
-# - [] More Metrics
-# - [] Enrichment ananlysis
-
 ##### Presetting ######
 rm(list = ls()) # Clean variable
 memory.limit(150000)
@@ -57,7 +49,7 @@ Set_Dataset_group1 <- c("mix.CELSeq51", "mix.CELSeq52", "mix.CELSeq53") # Define
 ## Set names
 Name_CP <- "MSINB"
 Set_Test_Type <- "" # "WeakenGeneExp" # "CompDiff"  # ""
-# Set_Seed <- 717
+# Set_Seed <- 123
 Name_Test <- "V1"
 
 if(Set_Test_Type == "CompDiff"){
@@ -529,18 +521,12 @@ info_output <- c("##_R Version Information:", capture.output(version), "",
 writeLines(info_output, paste0(Name_ExportFolder,"/",Name_Export,"_Version_and_Session_Info_Sum.txt"))
 
 
-## Record Parameters
-source("Sup_Record_Param.R")
-
 ## Export RData
 save.image(paste0(Name_ExportFolder,"/",Name_Export,".RData"))
 
 Rec_Time_Point.lt[["SaveRData"]] <- Sys.time() # %>% as.character()
 Rec_Time_Spend.lt[["SaveRData"]] <- Rec_Time_Point.lt[["SaveRData"]] - Rec_Time_Point.lt[["End_Time"]]
 
-
-## Record Time Spend
-source("Sup_Record_TimeSpend.R")
 
 ## Export Clean up RData
 rm(list = setdiff(ls(), c("seurat_Result_list", "summary_df", "Name_ExportFolder", "Name_Export")))
