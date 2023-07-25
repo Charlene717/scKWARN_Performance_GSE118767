@@ -1,3 +1,5 @@
+## Function of arrange plots
+
 if (!require(ggplot2)) install.packages('ggplot2'); library(ggplot2)
 if (!require(gridExtra)) install.packages('gridExtra'); library(gridExtra)
 
@@ -141,17 +143,3 @@ arrange_plots <- function(plot_list, ncol = 3, title_text = NULL, heights = NULL
   return(plot_grid)
 }
 
-
-
-# ## Test Function
-# arrange_plots(plot_list_Bar)
-# arrange_plots(plot_list_Bar[-1], edgeOnlyXAxis = TRUE, edgeOnlyYAxis = FALSE,
-#               edgeOnlyXLabel = TRUE, edgeOnlyYLabel = FALSE, OneFigLegend = TRUE,
-#               removeTitles = TRUE, legend_position = "bottom",x_tick_angle = 45,x_tick_size = 12,
-#               title_text = "Test Title",removeX = TRUE,simplifyXAxis = TRUE) #,auto_labels = FALSE
-#
-# Set_SelectPlt <- c("ASWPCA_CellType","Purity","PCADepthCorr","ROGUE_CellType" , "ARI" )
-# arrange_plots(plot_list_Bar[Set_SelectPlt], edgeOnlyXAxis = TRUE, edgeOnlyYAxis = FALSE,
-#               edgeOnlyXLabel = TRUE, edgeOnlyYLabel = FALSE, OneFigLegend = TRUE,
-#               removeTitles = TRUE, legend_position = "bottom",x_tick_angle = 45,x_tick_size = 12,
-#               title_text = Name_FigTitle,removeX = TRUE,simplifyXAxis = TRUE,auto_labels = FALSE)
