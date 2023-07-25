@@ -4,10 +4,11 @@ memory.limit(150000)
 
 Set_Test_Type <- "CompDiff"
 Set_Main_CellLine <- "A549"
+Set_Filter_Cell = TRUE
 Set_Main_FltCellLine = "ALL"
 Set_TotalCellNum <- 800
 Set_numGeneforEst = 2000
-Set_Filter_Cell = TRUE
+
 
 Set_NorType <- c("counts","scKWARN", "RC", "scran", "sctransform", "PsiNorm")
 to_keep <- c("i", "Name_Test", "Set_Test_Type", "Set_Main_CellLine", "Set_TotalCellNum" ,
@@ -41,10 +42,10 @@ memory.limit(150000)
 
 Set_Test_Type <- "CompDiff"
 Set_Main_CellLine <- "H838"
+Set_Filter_Cell = TRUE
 Set_Main_FltCellLine = "ALL"
 Set_TotalCellNum <- 500
 Set_numGeneforEst = 2000
-Set_Filter_Cell = TRUE
 
 Set_NorType <- c("counts","scKWARN", "RC", "scran", "sctransform", "PsiNorm")
 to_keep <- c("i", "Name_Test", "Set_Test_Type", "Set_Main_CellLine", "Set_TotalCellNum" ,
