@@ -1,3 +1,5 @@
+## Function of Box plot
+
 if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 
 create_box_plot <- function(df,
@@ -75,40 +77,6 @@ create_box_plot <- function(df,
 
   return(plt.box)
 }
-
-
-# ## Test function
-# NumCell <- ncol(Count.mtx)
-# NumGene <- nrow(Count.mtx)
-# # Results_Time.df <- read.csv("your_data.csv")  # replace "your_data.csv" with your actual file
-# # Results_Time.df <- read.delim2(paste0(getwd(),"/Export/",ImportName,"_TimeRec.tsv"))
-# plt.box <- create_box_plot(Results_Time.df,
-#                            x_var = "Method", y_var = "TimeElapsed",
-#                            fill_var = "Method",color_var = "Method",
-#                            Set_order = "No",
-#                            Set_Title = paste0(DatasetName," (",NumCell,"cells, ",NumGene,"genes)"),
-#                            Name_XTitle = "Method",
-#                            Name_YTitle = "Time spent(Sec)")
-# plt.box
-#
-#
-#
-# # Set Color
-# col.values <- c("counts" = "gray","scKWARN" = "blue", "RC" = "black", "scran" = "red", "SCNorm" = "#00CC00",
-#                 "Seurat_LogNormalize" = "#159e5a","Seurat_RC" = "#2bed78","Seurat_CLR" = "#335e49",
-#                 "sctransform" = "#B266FF", "PsiNorm" = "#FF8000")
-# Set_NorType <- c("counts","scKWARN", "RC", "scran", "SCNorm",  # "SCNorm", # "Seurat_LogNormalize","Seurat_RC","Seurat_CLR",
-#                  "sctransform", "PsiNorm")
-#
-# plt.box <- create_box_plot(Results_Time.df,
-#                            x_var = "Method", y_var = "TimeElapsed",
-#                            fill_var = "Method", color_var = "Method",
-#                            Set_order = "user",
-#                            Name_XTitle = "Method", Name_YTitle = "Time spent(Sec)",
-#                            Set_Title = paste0(DatasetName," (",NumCell,"cells, ",NumGene,"genes)"),
-#                            color_values = col.values,
-#                            level_values = Set_NorType)
-# plt.box
 
 
 ###################################################################################
@@ -199,48 +167,4 @@ create_box_plot_multiXTpye <- function(df,
 
   return(plt.box)
 }
-
-
-# ## Test function
-# Sum.df <- read.delim2(paste0(getwd(),"/Export/","MSINB_2023_06_05__scKW2000_Fea2000_SetCltNumTRUE_nPC50_FindVarFeadisp_V1_Sum_Test.txt"),
-#                       na.strings = "NA")
-# # Replace "" with NA in Sum.df
-# Sum.df <- data.frame(lapply(Sum.df, function(x) replace(x, x == "", NA)))
-#
-# # Set Color
-# col.values <- c("counts" = "gray","scKWARN" = "blue", "RC" = "black", "scran" = "red", "SCNorm" = "#00CC00",
-#                 "Seurat_LogNormalize" = "#159e5a","Seurat_RC" = "#2bed78","Seurat_CLR" = "#335e49",
-#                 "sctransform" = "#B266FF", "PsiNorm" = "#FF8000")
-# Set_NorType <- c("counts","scKWARN", "RC", "scran", "SCNorm",  # "SCNorm", # "Seurat_LogNormalize","Seurat_RC","Seurat_CLR",
-#                  "sctransform", "PsiNorm")
-# Set_Dataset <- c("mix.CELSeq51", "mix.CELSeq52", "mix.CELSeq53", "mix.DropSeq", "mix.10x", "mix.10x5", "mix.CELSeq")
-#
-# # You can then call this function like this:
-# plt.box <- create_box_plot_multiXTpye(Sum.df,
-#                                       x_var = "Dataset", y_var = "PCADepthCorr",
-#                                       fill_var = "NorMeth", color_var = "NorMeth",
-#                                       Set_fill_order = Set_NorType,
-#                                       Set_x_order = Set_Dataset,
-#                                       Name_XTitle = "Dataset",
-#                                       Name_YTitle = "PCA Depth Correlation",
-#                                       Name_LegendTitle = "Normalization",
-#                                       Set_Title = "",
-#                                       color_values = col.values,
-#                                       ylim_values = c(0, 1), # set y limits
-#                                       show_mean = TRUE) # show mean value on boxplot
-# plt.box
-#
-# plt.box <- create_box_plot_multiXTpye(Sum.df,
-#                                       x_var = "Dataset", y_var = "ROGUE_CellType",
-#                                       fill_var = "NorMeth", color_var = "NorMeth",
-#                                       Set_fill_order = Set_NorType,
-#                                       Set_x_order = Set_Dataset,
-#                                       Name_XTitle = "Dataset",
-#                                       Name_YTitle = "ROGUE (CellType)",
-#                                       Name_LegendTitle = "Normalization",
-#                                       Set_Title = "",
-#                                       color_values = col.values,
-#                                       ylim_values = c(0, 1), # set y limits
-#                                       show_mean = TRUE) # show mean value on boxplot
-# plt.box
 
