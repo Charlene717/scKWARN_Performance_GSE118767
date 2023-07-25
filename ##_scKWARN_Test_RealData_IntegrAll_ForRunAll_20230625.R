@@ -1,11 +1,3 @@
-##### To-Do List ######
-# - [] DEG
-# - [] Heatmap
-# - [T] Parameter Record
-
-# - [] More Metrics
-# - [] Enrichment ananlysis
-
 # ##### Presetting ######
 # rm(list = ls()) # Clean variable
 # memory.limit(150000)
@@ -56,33 +48,25 @@ Set_Dataset_group1 <- c("mix.CELSeq51", "mix.CELSeq52", "mix.CELSeq53") # Define
 
 ## Set names
 Name_CP <- "MSINB"
-# Set_Test_Type <- "" # "WeakenGeneExp" # "CompDiff"  # ""
-# Set_Seed <- 717
+# Set_Test_Type <- "CompDiff" # "CompDiff" or ""
+# Set_Seed <- 123
 # Name_Test <- "V1"
 
 if(Set_Test_Type == "CompDiff"){
   # Set_TotalCellNum <- 800
   Set_YLimCellNum <- Set_TotalCellNum
   # Set_Main_CellLine = "A549"
-  # Set_Main_FltCellLine = Set_Main_CellLine
+  # Set_Main_FltCellLine = "ALL" # Set_Main_FltCellLine = Set_Main_CellLine
   Name_DataSet <- "mix10x5"
 
   Name_Sup <- paste0("CompDiff_",Name_DataSet,"_",Set_Main_CellLine,"_Sum",Set_TotalCellNum) # Name_Sup <- "Test" # Name_Sup <- "CompDiff"
   Set_Ratio <- c(0.9, 0.8, 0.6, 0.4, 0.2, 0.1)
 
-}else if(Set_Test_Type == "WeakenGeneExp"){
-  Set_YLimCellNum <- 1400
-  Name_DataSet <- "mix10x5"
-
-  Name_Sup <- paste0("WeakenGeneExp_",Name_DataSet)
-  # Set_Ratio <- c(0.9, 0.8, 0.6, 0.4, 0.2, 0.1)
-  Set_Ratio <- c(0.9, 0.7, 0.5, 0.3, 0.1)
-
 }else{
   Set_YLimCellNum <- 1400
   # Define the datasets to include in the new seurat_list
   Set_Dataset <- c( "mix.CELSeq51", "mix.CELSeq52", "mix.CELSeq53", "mix.DropSeq", "mix.10x",
-                    "mix.10x5", "mix.CELSeq" )#, "pbmc3k")
+                    "mix.10x5", "mix.CELSeq" )
 
   Name_Sup <- ""
 }
@@ -107,10 +91,6 @@ if (!dir.exists(Name_ExportFolder)){dir.create(Name_ExportFolder)}   ## Create n
 seurat_list <- list()
 source("Dataset_PsiNorm.R")
 
-source("Dataset_Seuratpbmc3k.R")
-# source("Sup_Seurat_Sampling.R") # For Small test
-seurat_list[["pbmc3k"]] <- seuratObject
-
 ## Add "Cell_Type" col to metadata in Seurat object
 source("Run_Rename_Seurat_MetadataColname.R")
 
@@ -124,10 +104,6 @@ if(Set_Test_Type == "CompDiff"){
     source("Run_Rename_Seurat_MetadataColname.R")
   }
   source("##_Create_Compositional_Differences.R")
-
-}else if(Set_Test_Type == "WeakenGeneExp"){
-  ## Case of Weaken GeneExp
-  source("##_Create_Weaken_GeneExp.R")
 
 }else{
   # Remove datasets not in Set_Dataset from the seurat_list
@@ -434,42 +410,11 @@ variable_params_list <- list(
 
 variable_params_list <- variable_params_list[Set_Metrics]
 
-# #### Bubble plot ####
-# fixed_params_Bubble <- modifyList(fixed_params,list(NameSize = "Cell Number",fixed_size_value = 9, size = "CellNum"))
-# # Use lapply to apply plot_bubble function
-source("Fun_Plot_Bubble.R")
-source("FUN_Plot_Arrange.R")
-#
-# plot_list_Bubble <- lapply(variable_params_list, function(params) {
-#   args <- modifyList(fixed_params_Bubble, params)
-#   do.call(plot_bubble, args)
-# })
-# print(plot_list_Bubble)
-#
-# ## Export PDF
-# pdf(paste0(Name_ExportFolder,"/",Name_Export,"_Sum_Bubble.pdf"),
-#     width = 12, height = 10)
-# arrange_plots(plot_list_Bubble[Set_SelectPlt_Multi], edgeOnlyXAxis = TRUE, edgeOnlyYAxis = FALSE,
-#               edgeOnlyXLabel = TRUE, edgeOnlyYLabel = FALSE, OneFigLegend = TRUE,
-#               removeTitles = TRUE, legend_position = "bottom",x_tick_angle = 45,x_tick_size = 12,
-#               title_text = Name_FigTitle,removeX = TRUE,simplifyXAxis = FALSE,auto_labels = FALSE)
-# # Bug in simplifyXAxis = TRUE
-# print(plot_list_Bubble)
-# dev.off()
-#
-#
-# ## Export TIFF
-# # Loop through each plot and export it
-# lapply(names(plot_list_Bubble), function(name) {
-#   tiff(paste0(Name_ExportFolder, "/", Name_Export, "_Bubble_", name, ".tiff"),
-#        width = 800, height = 700)
-#   print(plot_list_Bubble[[name]])
-#   dev.off()
-# })
 
 #### Bar plot ####
 # Use lapply to apply plot_bar function
 source("FUN_Plot_Bar.R")
+source("FUN_Plot_Arrange.R")
 plot_list_Bar <- lapply(variable_params_list, function(params) {
   args <- modifyList(fixed_params, params)
   do.call(plot_bar, args)
@@ -496,12 +441,6 @@ lapply(names(plot_list_Bar), function(name) {
   dev.off()
 })
 
-
-#### DR plot ####
-source("Run_Seurat_PlotDR.R")
-
-Rec_Time_Point.lt[["Visualization"]] <- Sys.time() # %>% as.character()
-Rec_Time_Spend.lt[["Visualization"]] <- Rec_Time_Point.lt[["Visualization"]] - Rec_Time_Point.lt[["SumResult"]]
 
 ##### Export #####
 ## Export result df
@@ -531,24 +470,10 @@ info_output <- c("##_R Version Information:", capture.output(version), "",
 writeLines(info_output, paste0(Name_ExportFolder,"/",Name_Export,"_Version_and_Session_Info_Sum.txt"))
 
 
-## Record Parameters
-source("Sup_Record_Param.R")
-
 # ## Export RData
 # save.image(paste0(Name_ExportFolder,"/",Name_Export,".RData"))
 
 Rec_Time_Point.lt[["SaveRData"]] <- Sys.time() # %>% as.character()
 Rec_Time_Spend.lt[["SaveRData"]] <- Rec_Time_Point.lt[["SaveRData"]] - Rec_Time_Point.lt[["End_Time"]]
-
-
-## Record Time Spend
-source("Sup_Record_TimeSpend.R")
-
-# ## Export Clean up RData
-# rm(list = setdiff(ls(), c("seurat_Result_list", "summary_df", "Name_ExportFolder", "Name_Export",
-#                           "Name_Test", "Set_Test_Type", "Set_Main_CellLine", "Set_TotalCellNum" , "Set_NorType",
-#                           "Set_FindVarFea", "varFea_values", "to_keep")))
-# save.image(paste0(Name_ExportFolder,"/",Name_Export,"_S.RData"))
-
 
 
