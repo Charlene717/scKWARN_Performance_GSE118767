@@ -1,18 +1,14 @@
-# **scKWARN_Performance**
+# **scKWARN_Performance_GSE118767**
 
 ## Main Code
 
 ### Main Code: Main Metrics
 
-##_scKWARN_Performance_RealData_Main.R
+##_scKWARN_RealData_IntegrAll.R
 
 ### Main Code: Jaccard Index
 
-##_scKWARN_Performance_RealData_Jaccard.R
-
-### Main Code: Time Speed Test
-
-##_scKWARN_Performance_TimeRec.R
+###_scKWARN_RealData_IntegrAll_Jaccard.R
 
 ## Proportion Variation Sampling for Seurat Object
 
@@ -36,14 +32,6 @@
 
 #_FUN_NorMeth.R
 
-## Load Dataset
-
-Dataset_PsiNorm.R
-
-Dataset_Seuratpbmc3k.R
-
-Dataset_GSE29087_CountMtx.R
-
 ## Function for plot Figure
 
 FUN_Plot_Arrange.R
@@ -52,17 +40,13 @@ FUN_Plot_Bar.R
 
 FUN_Plot_Box.R
 
-FUN_Plot_Bubble.R
-
-FUN_Plot_Seurat_DR.R
-
 FUN_create_plots_CellCount_list.R
 
 ## Other
 
-### Function for Time Record
+### Load Dataset
 
-#_FUN_TimeRec.R
+Dataset_PsiNorm.R
 
 ### Function to Specify the Number of Clusters
 
@@ -72,6 +56,3 @@ FUN_Seurat_Set_ClusterNum.R
 
 Run_Rename_Seurat_MetadataColname.R
 
-### Parameter Setting Record
-
-Sup_Record_Param.R
