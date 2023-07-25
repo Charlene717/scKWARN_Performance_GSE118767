@@ -1,3 +1,5 @@
+## Function for Metrics
+
 ##### Load Packages #####
 if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 if(!require("cluster")) install.packages("cluster"); library(cluster)
