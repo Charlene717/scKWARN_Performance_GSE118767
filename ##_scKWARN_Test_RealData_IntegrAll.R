@@ -34,7 +34,7 @@ Set_Filter_Cell = TRUE
 Set_FindVarFea <- "vst" # "disp" # "mvp" # "vst"
 
 ## Set Normalization method
-Set_NorType <- c("counts","scKWARN", "RC", "scran", "SCNorm", # "SCNorm", # "Seurat_LogNormalize","Seurat_RC","Seurat_CLR",
+Set_NorType <- c("counts","scKWARN", "RC", "scran", "SCNorm", # "SCNorm", "Seurat_LogNormalize","Seurat_RC","Seurat_CLR",
                  "sctransform", "PsiNorm")
 Set_sctransform_Res = TRUE
 
@@ -56,7 +56,7 @@ if(Set_Test_Type == "CompDiff"){
   Set_TotalCellNum <- 800
   Set_YLimCellNum <- Set_TotalCellNum
   Set_Main_CellLine = "A549"
-  Set_Main_FltCellLine = Set_Main_CellLine
+  Set_Main_FltCellLine = "ALL" # Set_Main_FltCellLine = Set_Main_CellLine
   Name_DataSet <- "mix10x5"
 
   Name_Sup <- paste0("CompDiff_",Name_DataSet,"_",Set_Main_CellLine,"_Sum",Set_TotalCellNum) # Name_Sup <- "Test" # Name_Sup <- "CompDiff"
@@ -66,7 +66,7 @@ if(Set_Test_Type == "CompDiff"){
   Set_YLimCellNum <- 1400
   # Define the datasets to include in the new seurat_list
   Set_Dataset <- c( "mix.CELSeq51", "mix.CELSeq52", "mix.CELSeq53", "mix.DropSeq", "mix.10x",
-                    "mix.10x5", "mix.CELSeq" )#, "pbmc3k")
+                    "mix.10x5", "mix.CELSeq" )
 
   Name_Sup <- ""
 }
@@ -110,6 +110,8 @@ if(Set_Test_Type == "CompDiff"){
   seurat_list <- seurat_list[names(seurat_list) %in% Set_Dataset]
 }
 
+#### QC ####
+source("Run_Seurat_QC.R")
 
 Rec_Time_Point.lt[["Load_data"]] <- Sys.time() # %>% as.character()
 Rec_Time_Spend.lt[["Load_data"]] <- Rec_Time_Point.lt[["Load_data"]] - Rec_Time_Point.lt[["Load_Packages"]]
