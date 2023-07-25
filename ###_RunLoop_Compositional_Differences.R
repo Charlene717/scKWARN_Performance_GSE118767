@@ -72,7 +72,7 @@ for(Set_FindVarFea in varFea_values) {
 }
 
 
-
+##################################################################################
 
 #### Visualization: Box Plot ####
 rm(list = ls()) # Clean variable
@@ -83,23 +83,22 @@ if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 
 ##### Set parameter* ####
 Set_FindVarFea <- "vst" # "disp" # "mvp" # "vst"
+
 Name_Title = paste0("CompDiff_mix10x5_A549_Sum800 nfeature:2000; numGeneforEst:2000; nPC:50; FindVarFea:",Set_FindVarFea)
-Name_ExportFolder = paste0("Export/#_MSINB_0625_Performance_CompDiff_A549_scKW2000_FilterAllCell_#/",Set_FindVarFea,"/","A549")
+# Name_Title = paste0("CompDiff_mix10x5_H838_Sum500 nfeature:2000; numGeneforEst:2000; nPC:50; FindVarFea:",Set_FindVarFea)
+
+Name_ExportFolder = paste0("Export/#_MSINB_0625_Performance_CompDiff_A549_scKW2000_FilterAllCell_#")
+# Name_ExportFolder = paste0("Export/#_MSINB_0625_Performance_CompDiff_H838_scKW2000_FilterAllCell_#")
+
 Name_Export = paste0(gsub("-", "_",Sys.Date()),"_Sum_Metics_", Set_FindVarFea)
 Set_SelectPlt <- c("ASWPCA_CellType", "ARI", "Inverse_PCADepthCorr" )
 
 ##### Load data #####
-Set_Path <- paste0("D:/Dropbox/##_GitHub/###_VUMC/scKWARN_Test/", Name_ExportFolder)
-# Set_Path <- "D:/Dropbox/##_GitHub/###_VUMC/scKWARN_Test/Export/#_MSINB_0606_Performance_FindVarFea_CompDiff_#/#_Sum_mvp" # Specify directory
+Set_Path <- paste0(getwd(), "/" ,Name_ExportFolder)
 
 ## Merge specific files from a folder into a Dataframe
 files <- list.files(Set_Path, pattern = ".tsv", full.names = TRUE)
-
-# # Get a list of all .tsv files in the directory that end with 'CT'.
-# files <- list.files(Set_Path, pattern = "*CT*.tsv", full.names = TRUE)
 files <- list.files(Set_Path, pattern = "*Sum*.tsv", full.names = TRUE)
-# # ## Get a list of all files in the directory that contain "CT" and are tsv files
-# # files <- list.files(Set_Path, pattern = "CT.*\\.tsv$", full.names = TRUE)
 
 ## Read each tsv file and stack them into a data frame
 Sum.df <- files %>%
