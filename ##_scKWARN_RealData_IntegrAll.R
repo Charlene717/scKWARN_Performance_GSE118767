@@ -1,6 +1,6 @@
-##### Presetting ######
-rm(list = ls()) # Clean variable
-memory.limit(150000)
+# ##### Presetting ######
+# rm(list = ls()) # Clean variable
+# memory.limit(150000)
 
 ## Record time set
 Rec_Time_Point.lt <- list()
@@ -22,24 +22,24 @@ Rec_Time_Spend.lt[["Load_Packages"]] <- Rec_Time_Point.lt[["Load_Packages"]]-Rec
 
 ##### Set Export & Condition #####
 ## Set parameters
-Set_numGeneforEst = 2000
+# Set_numGeneforEst = 2000
 Set_nfeatures = 2000
 Num_PCA = 50
 Set_TarClusterNum <- TRUE
 
 Set_logPlusOne = TRUE
 Set_logDepth = TRUE
-Set_Filter_Cell = TRUE
+# Set_Filter_Cell = TRUE
 
-Set_FindVarFea <- "vst" # "disp" # "mvp" # "vst"
+# Set_FindVarFea <- "vst" # "disp" # "mvp" # "vst"
 
 ## Set Normalization method
-Set_NorType <- c("counts","scKWARN", "RC", "scran", "SCNorm", # "SCNorm", "Seurat_LogNormalize","Seurat_RC","Seurat_CLR",
-                 "sctransform", "PsiNorm")
+# Set_NorType <- c("counts","scKWARN", "RC", "scran", "SCNorm", # "SCNorm", "Seurat_LogNormalize","Seurat_RC","Seurat_CLR",
+#                  "sctransform", "PsiNorm")
 Set_sctransform_Res = TRUE
 
 ## Set the metrics to be included
-Set_Metrics <- c("PCADepthCorr", "ASWPCA_CellType","ASWPCA_Cluster","ARI", "Purity", "ROGUE_CellType", "ROGUE_Cluster")
+Set_Metrics <- c("PCADepthCorr", "ASWPCA_CellType","ARI") # Set_Metrics <- c("PCADepthCorr", "ASWPCA_CellType","ASWPCA_Cluster","ARI", "Purity", "ROGUE_CellType", "ROGUE_Cluster")
 
 ## Set export integrated plot
 Set_SelectPlt_Multi <- c("ASWPCA_CellType", "Inverse_PCADepthCorr", "ARI" )
@@ -48,15 +48,15 @@ Set_Dataset_group1 <- c("mix.CELSeq51", "mix.CELSeq52", "mix.CELSeq53") # Define
 
 ## Set names
 Name_CP <- "MSINB"
-Set_Test_Type <- "CompDiff" # "CompDiff" or ""
+# Set_Test_Type <- "CompDiff" # "CompDiff" or ""
 # Set_Seed <- 123
-Name_Test <- "V1"
+# Name_Test <- "V1"
 
 if(Set_Test_Type == "CompDiff"){
-  Set_TotalCellNum <- 800
+  # Set_TotalCellNum <- 800
   Set_YLimCellNum <- Set_TotalCellNum
-  Set_Main_CellLine = "A549"
-  Set_Main_FltCellLine = "ALL" # Set_Main_FltCellLine = Set_Main_CellLine
+  # Set_Main_CellLine = "A549"
+  # Set_Main_FltCellLine = "ALL" # Set_Main_FltCellLine = Set_Main_CellLine
   Name_DataSet <- "mix10x5"
 
   Name_Sup <- paste0("CompDiff_",Name_DataSet,"_",Set_Main_CellLine,"_Sum",Set_TotalCellNum) # Name_Sup <- "Test" # Name_Sup <- "CompDiff"
@@ -479,16 +479,16 @@ info_output <- c("##_R Version Information:", capture.output(version), "",
 writeLines(info_output, paste0(Name_ExportFolder,"/",Name_Export,"_Version_and_Session_Info_Sum.txt"))
 
 
-## Export RData
-save.image(paste0(Name_ExportFolder,"/",Name_Export,".RData"))
-
-Rec_Time_Point.lt[["SaveRData"]] <- Sys.time() # %>% as.character()
-Rec_Time_Spend.lt[["SaveRData"]] <- Rec_Time_Point.lt[["SaveRData"]] - Rec_Time_Point.lt[["End_Time"]]
-
-
-## Export Clean up RData
-rm(list = setdiff(ls(), c("seurat_Result_list", "summary_df", "Name_ExportFolder", "Name_Export")))
-save.image(paste0(Name_ExportFolder,"/",Name_Export,"_S.RData"))
+# ## Export RData
+# save.image(paste0(Name_ExportFolder,"/",Name_Export,".RData"))
+#
+# Rec_Time_Point.lt[["SaveRData"]] <- Sys.time() # %>% as.character()
+# Rec_Time_Spend.lt[["SaveRData"]] <- Rec_Time_Point.lt[["SaveRData"]] - Rec_Time_Point.lt[["End_Time"]]
+#
+#
+# ## Export Clean up RData
+# rm(list = setdiff(ls(), c("seurat_Result_list", "summary_df", "Name_ExportFolder", "Name_Export")))
+# save.image(paste0(Name_ExportFolder,"/",Name_Export,"_S.RData"))
 
 
 
