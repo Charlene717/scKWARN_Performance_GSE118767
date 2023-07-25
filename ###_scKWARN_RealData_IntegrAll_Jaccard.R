@@ -11,7 +11,8 @@ if (!require(ComplexHeatmap)) {install.packages("ComplexHeatmap")}; library(Comp
 if (!require(circlize)) {install.packages("circlize")}; library(circlize)
 
 ##### Load RData #####
-load("D:/Dropbox/##_GitHub/###_VUMC/scKWARN_Test/Export/#_MSINB_0611_Performance_#/MSINB_2023_06_11__scKW2000_Fea2000_SetCltNumTRUE_nPC50_FindVarFeavst_V1.RData")
+load(paste0(getwd(), "/Export/#_MSINB_0611_Performance_#/MSINB_2023_06_11__scKW2000_Fea2000_SetCltNumTRUE_nPC50_FindVarFeavst_V1.RData"))
+
 seurat_list <- seurat_Nor_list
 
 ## Clean up the object
@@ -74,12 +75,12 @@ for (dataset in names(seurat_list)){
 
 
     seuratObject <- seurat.split1
-    source("#_Run_Normalization.R")
+    source("#_Run_Normalization_Jaccard.R")
     seurat.split1 <- seuratObject
     rm(seuratObject)
 
     seuratObject <- seurat.split2
-    source("#_Run_Normalization.R")
+    source("#_Run_Normalization_Jaccard.R")
     seurat.split2 <- seuratObject
     rm(seuratObject)
 
