@@ -23,7 +23,7 @@ for(Set_FindVarFea in varFea_values) {
     Set_Seed <- i+123
     Name_Test <- paste0("AllF_V", i)
 
-    source("##_scKWARN_Test_RealData_IntegrAll_ForRunAll_20230625.R")
+    source("##_scKWARN_Test_RealData_IntegrAll_ForRunLoop.R")
 
     # Remove all objects except those in to_keep
     rm(list=setdiff(ls(), to_keep))
@@ -60,7 +60,7 @@ for(Set_FindVarFea in varFea_values) {
     Set_Seed <- i+123
     Name_Test <- paste0("AllF_V", i)
 
-    source("##_scKWARN_Test_RealData_IntegrAll_ForRunAll_20230625.R")
+    source("##_scKWARN_Test_RealData_IntegrAll_ForRunLoop.R")
 
     # Remove all objects except those in to_keep
     rm(list=setdiff(ls(), to_keep))
