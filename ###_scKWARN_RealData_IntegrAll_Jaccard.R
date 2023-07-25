@@ -7,6 +7,8 @@ memory.limit(150000)
 if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 if(!require("Seurat")) install.packages("Seurat"); library(Seurat)
 if (!requireNamespace("SeuratData", quietly = TRUE)) {install.packages("SeuratData")}; library(SeuratData)
+## Main Code: Jaccard Index
+
 if (!require(ComplexHeatmap)) {install.packages("ComplexHeatmap")}; library(ComplexHeatmap)
 if (!require(circlize)) {install.packages("circlize")}; library(circlize)
 
