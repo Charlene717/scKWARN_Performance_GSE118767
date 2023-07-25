@@ -1,3 +1,6 @@
+## Dataset: GSE118767(Remove heterogeneous clusters in mix10x5)
+## Ref: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118767
+
 # ##### Presetting ######
 # rm(list = ls()) # Clean variable
 # memory.limit(150000)
