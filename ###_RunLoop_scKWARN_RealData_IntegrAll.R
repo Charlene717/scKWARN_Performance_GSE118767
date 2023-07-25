@@ -11,7 +11,7 @@ Set_Test_Type <- ""
 # Set_Main_FltCellLine = "ALL"
 # Set_TotalCellNum <- 800
 Set_numGeneforEst = 2000
-varFea_values <- "vst"
+Set_FindVarFea <- "vst"
 Set_NorType <- c("counts","scKWARN", "RC", "scran", "sctransform", "PsiNorm", "SCNorm")
 
 source("##_scKWARN_RealData_IntegrAll.R")
