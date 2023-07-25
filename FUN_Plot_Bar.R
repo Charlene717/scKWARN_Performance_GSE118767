@@ -1,3 +1,5 @@
+## Function of Bar plot
+
 if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 if(!require("forcats")) install.packages("forcats"); library(forcats)
 
@@ -51,16 +53,3 @@ plot_bar <- function(df, x, y, fill,
   return(plot_Bar)
 }
 
-
-
-# ## Test function
-# plot_bar(df = summary_df,
-#          x = "Dataset",
-#          y = "PCADepthCorr",
-#          fill = "NorMeth",
-#          col.values = col.values,
-#          fill_order = Set_NorType,
-#          NameX = "Dataset",
-#          NameY = "Correlation",
-#          NameFill = "Normalization",
-#          Set_TitleName="Correlation Bar Plot")
