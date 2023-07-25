@@ -91,10 +91,6 @@ if (!dir.exists(Name_ExportFolder)){dir.create(Name_ExportFolder)}   ## Create n
 seurat_list <- list()
 source("Dataset_PsiNorm.R")
 
-source("Dataset_Seuratpbmc3k.R")
-# source("Sup_Seurat_Sampling.R") # For Small test
-seurat_list[["pbmc3k"]] <- seuratObject
-
 ## Add "Cell_Type" col to metadata in Seurat object
 source("Run_Rename_Seurat_MetadataColname.R")
 
