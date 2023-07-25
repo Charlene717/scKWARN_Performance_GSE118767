@@ -48,7 +48,7 @@ Set_Dataset_group1 <- c("mix.CELSeq51", "mix.CELSeq52", "mix.CELSeq53") # Define
 
 ## Set names
 Name_CP <- "MSINB"
-Set_Test_Type <- "" # "WeakenGeneExp" # "CompDiff"  # ""
+Set_Test_Type <- "CompDiff" # "CompDiff" or ""
 # Set_Seed <- 123
 Name_Test <- "V1"
 
@@ -61,14 +61,6 @@ if(Set_Test_Type == "CompDiff"){
 
   Name_Sup <- paste0("CompDiff_",Name_DataSet,"_",Set_Main_CellLine,"_Sum",Set_TotalCellNum) # Name_Sup <- "Test" # Name_Sup <- "CompDiff"
   Set_Ratio <- c(0.9, 0.8, 0.6, 0.4, 0.2, 0.1)
-
-}else if(Set_Test_Type == "WeakenGeneExp"){
-  Set_YLimCellNum <- 1400
-  Name_DataSet <- "mix10x5"
-
-  Name_Sup <- paste0("WeakenGeneExp_",Name_DataSet)
-  # Set_Ratio <- c(0.9, 0.8, 0.6, 0.4, 0.2, 0.1)
-  Set_Ratio <- c(0.9, 0.7, 0.5, 0.3, 0.1)
 
 }else{
   Set_YLimCellNum <- 1400
