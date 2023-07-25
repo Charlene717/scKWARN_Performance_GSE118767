@@ -1,3 +1,5 @@
+## Proportion Variation Sampling for Seurat Object
+
 ## Ref: https://satijalab.org/seurat/articles/integration_introduction.html
 
 # ##### Presetting ######
@@ -113,21 +115,6 @@ recompose_seurat <- function(seurat_object, cell_type_field, sampling_mode = "eq
 
   return(new_seurat_object)
 }
-
-# ## Test function
-# seuratObject <- seurat_list[["mix.10x5"]]
-# TestRecom1 <- recompose_seurat(seuratObject, cell_type_field = "Cell_Type",
-#                                set_comp = c(Sum=500,A549 = 0.5,H1975 = 0.1))
-# calculate_counts(TestRecom1, field_names = "Cell_Type")
-#
-#
-# TestRecom2 <- recompose_seurat(seuratObject, cell_type_field = "Cell_Type",
-#                                set_comp = c(A549 = 200,H1975 = 100))
-# calculate_counts(TestRecom2, field_names = "Cell_Type")
-#
-# TestRecom3 <- recompose_seurat(seuratObject, cell_type_field = "Cell_Type",
-#                                set_comp = c(A549 = 500,H1975 = 100))
-# calculate_counts(TestRecom3, field_names = "Cell_Type")
 
 
 #### Create New seurat_list #####
