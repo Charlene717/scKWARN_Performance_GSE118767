@@ -1,3 +1,5 @@
+## Unify the name of the Cell Type in the column of Metadata in the Seurat object
+
 ## Add "Cell_Type" col to metadata in Seurat object
 # Array of possible column names
 possible_cols <- c("cell_line_demuxlet", "seurat_annotations")
