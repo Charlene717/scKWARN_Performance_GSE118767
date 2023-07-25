@@ -10,14 +10,6 @@
 
 ###_scKWARN_RealData_IntegrAll_Jaccard.R
 
-## Proportion Variation Sampling for Seurat Object
-
-##_Create_Compositional_Differences.R
-
-## Function for Metrics
-
-#_FUN_Metric.R
-
 ## Perform normalization
 
 ### Perform normalization on the main program's data
@@ -32,6 +24,10 @@
 
 #_FUN_NorMeth.R
 
+## Function for Metrics
+
+#_FUN_Metric.R
+
 ## Function for plot Figure
 
 FUN_Plot_Arrange.R
@@ -43,6 +39,10 @@ FUN_Plot_Box.R
 FUN_create_plots_CellCount_list.R
 
 ## Other
+
+### Proportion Variation Sampling for Seurat Object
+
+##_Create_Compositional_Differences.R
 
 ### Load Dataset
 
