@@ -77,33 +77,3 @@ if(length(seurat_list) > 1){
 }
 
 
-# #### Perform an integrated analysis ####
-# # Set_nfeatures = 2000
-# if(length(seurat_list) > 1){
-#   DefaultAssay(seuratObject) <- "integrated"
-# } else {
-#   seuratObject <- FindVariableFeatures(seuratObject, nfeatures = Set_nfeatures)
-# }
-#
-#
-# # Num_PCA = 50
-# # Run the standard workflow for visualization and clustering
-# seuratObject <- ScaleData(seuratObject, verbose = FALSE)
-# seuratObject <- RunPCA(seuratObject, npcs = Num_PCA, verbose = FALSE)
-# seuratObject <- RunUMAP(seuratObject, reduction = "pca", dims = 1:Num_PCA)
-# seuratObject <- FindNeighbors(seuratObject, reduction = "pca", dims = 1:Num_PCA)
-# seuratObject <- FindClusters(seuratObject, resolution = 0.5)
-#
-#
-# # Visualization
-# p1 <- DimPlot(seuratObject, reduction = "umap", group.by = "Dataset")
-# p2 <- DimPlot(seuratObject, reduction = "umap", group.by = "seurat_clusters")
-# # p2 <- DimPlot(seuratObject, reduction = "umap", label = TRUE, repel = TRUE)
-# p3 <- DimPlot(seuratObject, reduction = "umap", group.by = "cell_line_demuxlet")
-# p1 + p2 + p3
-#
-# ##### Count cell number #####
-# source("#_FUN_Metric.R")
-# Num_Cell.df <- calculate_counts(seuratObject, field_names = "cell_line_demuxlet")
-# Num_Cell.df
-#
