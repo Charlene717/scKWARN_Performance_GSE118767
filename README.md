@@ -56,3 +56,6 @@ FUN_Seurat_Set_ClusterNum.R
 
 Run_Rename_Seurat_MetadataColname.R
 
+### Quality control 
+Run_Seurat_QC.R
+
