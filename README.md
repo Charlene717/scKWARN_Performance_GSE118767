@@ -4,6 +4,8 @@
 
 ### Main Code: Main Metrics
 
+###_RunLoop_scKWARN_RealData_IntegrAll.R
+
 ##_scKWARN_RealData_IntegrAll.R
 
 ### Main Code: Jaccard Index
@@ -60,4 +62,7 @@ Run_Rename_Seurat_MetadataColname.R
 
 ### Quality control 
 Run_Seurat_QC.R
+
+### Dataset Selection and Integration
+Run_Dataset_Selection_and_Integration.R
 
