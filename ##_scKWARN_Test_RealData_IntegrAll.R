@@ -1,11 +1,3 @@
-##### To-Do List ######
-# - [] DEG
-# - [] Heatmap
-# - [T] Parameter Record
-
-# - [] More Metrics
-# - [] Enrichment ananlysis
-
 ##### Presetting ######
 rm(list = ls()) # Clean variable
 memory.limit(150000)
@@ -57,7 +49,7 @@ Set_Dataset_group1 <- c("mix.CELSeq51", "mix.CELSeq52", "mix.CELSeq53") # Define
 ## Set names
 Name_CP <- "MSINB"
 Set_Test_Type <- "" # "WeakenGeneExp" # "CompDiff"  # ""
-# Set_Seed <- 717
+# Set_Seed <- 123
 Name_Test <- "V1"
 
 if(Set_Test_Type == "CompDiff"){
