@@ -244,14 +244,3 @@ create_box_plot_multiXTpye <- function(df,
 #                                       show_mean = TRUE) # show mean value on boxplot
 # plt.box
 
-## To-Do List
-# - [v] add separator line
-# - [v] Order of Normalization
-# - [v] x-axis ordering
-# - [] Normalization affects the Dataset (x-axis) order
-# - [v] Average position
-# - [L] Aspect ratio adjustment
-# - [v] ROGUE missing value handling
-# - [v] Change the Function name
-# - [v] Fig legend name correction
-
