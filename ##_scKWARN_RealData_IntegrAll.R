@@ -89,7 +89,7 @@ if (!dir.exists(Name_ExportFolder)){dir.create(Name_ExportFolder)}   ## Create n
 
 ##### Load data* #####
 seurat_list <- list()
-source("Dataset_PsiNorm.R")
+source("Dataset_GSE118767.R")
 
 ## Add "Cell_Type" col to metadata in Seurat object
 source("Run_Rename_Seurat_MetadataColname.R")
@@ -98,7 +98,7 @@ source("Run_Rename_Seurat_MetadataColname.R")
 if(Set_Test_Type == "CompDiff"){
   if (Set_Filter_Cell) {
     ## Filter Cell
-    source("Dataset_PsiNorm_mix10x5_Filter.R")
+    source("Dataset_GSE118767_mix10x5_Filter.R")
     seurat_list[["mix.10x5"]] <- seurat_object_filtered
     ## Case of Composition Differences
     source("Run_Rename_Seurat_MetadataColname.R")
