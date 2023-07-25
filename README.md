@@ -16,7 +16,7 @@
 
 ### Perform normalization on the main program's data
 
-#_Run_Normalization_Main.R
+#_Run_Normalization_SeuratList.R
 
 ### Perform normalization on the Jaccard program's data
 
