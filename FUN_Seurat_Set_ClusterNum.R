@@ -1,3 +1,5 @@
+## Function to Specify the Number of Clusters
+
 ##### Load Packages #####
 if(!require("tidyverse")) install.packages("tidyverse"); library(tidyverse)
 if(!require("Seurat")) install.packages("Seurat"); library(Seurat)
@@ -44,18 +46,3 @@ cluster_Seurat_to_target <- function(seurat_obj, target_clusters = 5,
   return(seurat_obj)
 }
 
-# ## Test Function
-# seurat_obj <- cluster_Seurat_to_target(seurat_obj, target_clusters = 5,
-#                                        Initial_resolution = 0.5, Num_PCA = 50,
-#                                        LoopLim = 100, resolution_down_factor = 0.9,
-#                                        resolution_up_factor = 1.1)
-#
-# # Access the stored num_clusters and resolution
-# print(paste("Number of clusters:", seurat_obj@misc[["Rec_clustersNum"]]$num_clusters))
-# print(paste("Final resolution:", seurat_obj@misc[["Rec_clustersNum"]]$resolution))
-#
-#
-# ## Run UMAP
-# Num_PCA <- 50
-# seurat_obj <- RunUMAP(seurat_obj, dims = 1:Num_PCA)
-# DimPlot(seurat_obj, reduction = "umap")
