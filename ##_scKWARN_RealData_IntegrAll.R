@@ -237,6 +237,17 @@ for (dataset_name in names(seurat_Result_list)) {
 }
 
 ## Plot CellCount list
+## Count cell number
+source("#_FUN_Metric.R")
+seurat_list <- lapply(seurat_list, function(seurat_object) {
+  # Calculate counts
+  counts <- calculate_counts(seurat_object, field_names = "Cell_Type")
+
+  # Store the result in the misc slot
+  seurat_object@misc[["CountCell"]] <- counts
+
+  return(seurat_object)
+})
 source("FUN_create_plots_CellCount_list.R")
 
 # Use the function to create a list of plots with reverse order and sum of cells in the title
