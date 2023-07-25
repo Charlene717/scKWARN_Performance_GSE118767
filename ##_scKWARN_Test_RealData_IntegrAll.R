@@ -421,45 +421,13 @@ variable_params_list <- list(
 )
 
 # Set_SelectPlt_Multi <- c("ASWPCA_CellType","Purity","PCADepthCorr","ROGUE_CellType" , "ARI" )
-
 variable_params_list <- variable_params_list[Set_Metrics]
-
-#### Bubble plot ####
-fixed_params_Bubble <- modifyList(fixed_params,list(NameSize = "Cell Number",fixed_size_value = 9, size = "CellNum"))
-# Use lapply to apply plot_bubble function
-source("Fun_Plot_Bubble.R")
-source("FUN_Plot_Arrange.R")
-
-plot_list_Bubble <- lapply(variable_params_list, function(params) {
-  args <- modifyList(fixed_params_Bubble, params)
-  do.call(plot_bubble, args)
-})
-print(plot_list_Bubble)
-
-## Export PDF
-pdf(paste0(Name_ExportFolder,"/",Name_Export,"_Sum_Bubble.pdf"),
-    width = 12, height = 10)
-arrange_plots(plot_list_Bubble[Set_SelectPlt_Multi], edgeOnlyXAxis = TRUE, edgeOnlyYAxis = FALSE,
-              edgeOnlyXLabel = TRUE, edgeOnlyYLabel = FALSE, OneFigLegend = TRUE,
-              removeTitles = TRUE, legend_position = "bottom",x_tick_angle = 45,x_tick_size = 12,
-              title_text = Name_FigTitle,removeX = TRUE,simplifyXAxis = FALSE,auto_labels = FALSE)
-# Bug in simplifyXAxis = TRUE
-print(plot_list_Bubble)
-dev.off()
-
-
-## Export TIFF
-# Loop through each plot and export it
-lapply(names(plot_list_Bubble), function(name) {
-  tiff(paste0(Name_ExportFolder, "/", Name_Export, "_Bubble_", name, ".tiff"),
-       width = 800, height = 700)
-  print(plot_list_Bubble[[name]])
-  dev.off()
-})
 
 #### Bar plot ####
 # Use lapply to apply plot_bar function
 source("FUN_Plot_Bar.R")
+source("FUN_Plot_Arrange.R")
+
 plot_list_Bar <- lapply(variable_params_list, function(params) {
   args <- modifyList(fixed_params, params)
   do.call(plot_bar, args)
@@ -486,12 +454,6 @@ lapply(names(plot_list_Bar), function(name) {
   dev.off()
 })
 
-
-#### DR plot ####
-source("Run_Seurat_PlotDR.R")
-
-Rec_Time_Point.lt[["Visualization"]] <- Sys.time() # %>% as.character()
-Rec_Time_Spend.lt[["Visualization"]] <- Rec_Time_Point.lt[["Visualization"]] - Rec_Time_Point.lt[["SumResult"]]
 
 ##### Export #####
 ## Export result df
