@@ -61,8 +61,6 @@ calculate_silhouette <- function(seurat_object, reduction_method = "umap",
   # Extract the cell embeddings based on the reduction_method
   if (reduction_method == "pca") {
     cell_embeddings <- Embeddings(object = seurat_object[["pca"]])[, 1:pca_components]
-    # Embeddings(object = pbmc_small, reduction = "pca")[1:5, 1:5]
-    # Embeddings(object = pbmc_small[["pca"]])[1:5, 1:5]
 
   } else {
     cell_embeddings <- Embeddings(seurat_object, reduction = reduction_method)
@@ -233,13 +231,6 @@ calculate_counts <- function(seurat_object, field_names) {
   # Return the list of data frames
   return(df_list)
 }
-
-# ## Test Result
-# results_counts_cell <- calculate_counts(seurat_object = seuratObject, field_names = c("seurat_annotations", "seurat_clusters"))
-# annotation_df <- results_counts_cell[["seurat_annotations"]]
-# print(annotation_df)
-# cluster_df <- results_counts_cell[["seurat_clusters"]]
-# print(cluster_df)
 
 
 
