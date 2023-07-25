@@ -9,7 +9,8 @@ if(!require("Seurat")) install.packages("Seurat"); library(Seurat)
 if (!requireNamespace("SeuratData", quietly = TRUE)) {install.packages("SeuratData")}; library(SeuratData)
 ## Main Code: Jaccard Index
 
-if (!require(ComplexHeatmap)) {install.packages("ComplexHeatmap")}; library(ComplexHeatmap)
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+if (!require(ComplexHeatmap)) {BiocManager::install("ComplexHeatmap")}; library(ComplexHeatmap)
 if (!require(circlize)) {install.packages("circlize")}; library(circlize)
 
 ##### Load RData #####
@@ -42,8 +43,8 @@ seurat_split1_list <- list()
 seurat_split2_list <- list()
 
 # Your list of normalization methods
-norm.methods <- c("counts","scKWARN", "RC", "scran", "sctransform", "PsiNorm", "SCNorm")
-
+# norm.methods <- c("counts","scKWARN", "RC", "scran", "sctransform", "PsiNorm", "SCNorm")
+norm.methods <- c("counts", "RC")
 # Iterate through all the datasets and normalization methods
 for (dataset in names(seurat_list)){
   for (norm in norm.methods){
